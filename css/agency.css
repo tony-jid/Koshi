@@ -57,6 +57,13 @@ h6 {
     color: #333;
 }
 
+/* image shadow border */
+.img-border {
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+	box-shadow:         0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+}
+
 .img-centered {
     margin: 0 auto
 }
@@ -172,6 +179,7 @@ fieldset[disabled] .btn-xl.active {
 }
 
 .navbar-custom {
+	font-size: 1.3em;
     background-color: #222222;
     border-color: transparent
 }
@@ -223,13 +231,21 @@ fieldset[disabled] .btn-xl.active {
 .navbar-custom .navbar-nav > .active > a {
     border-radius: 0;
     color: white;
-    background-color: #617fde
+    background-color: #617fde;
 }
 
 .navbar-custom .navbar-nav > .active > a:hover,
 .navbar-custom .navbar-nav > .active > a:focus {
     color: white;
     background-color: #617fde
+}
+
+/* padding in dropdown items*/
+.navbar-custom .dropdown-menu > li > a
+{
+	font-size: 1.2em;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 @media (min-width: 768px) {
@@ -250,6 +266,11 @@ fieldset[disabled] .btn-xl.active {
     .navbar-custom .navbar-nav > .active > a {
         border-radius: 3px
     }
+    
+    /* Hover dropdown menu*/
+    .navbar-custom .dropdown:hover .dropdown-menu {
+	    display: block;
+	}
 }
 
 @media (min-width: 768px) {
@@ -264,7 +285,7 @@ fieldset[disabled] .btn-xl.active {
 }
 
 header {
-    background-image: url('../img/header.jpg');
+    background-image: url('../img/rpr_1.jpg');
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center center;
@@ -273,7 +294,6 @@ header {
     background-size: cover;
     -o-background-size: cover;
     text-align: left;
-    color:
 }
 
 header .intro-text {
@@ -359,12 +379,12 @@ section h3.section-subheading {
 #portfolio .portfolio-item .portfolio-link {
     display: block;
     position: relative;
-    max-width: 400px;
+    max-width: 555px;
     margin: 0 auto
 }
 
 #portfolio .portfolio-item .portfolio-link .portfolio-hover {
-    background: rgba(254, 209, 54, 0.9);
+    background: rgba(255, 37, 37, 0.3);
     position: absolute;
     width: 100%;
     height: 100%;
@@ -399,7 +419,7 @@ section h3.section-subheading {
 }
 
 #portfolio .portfolio-item .portfolio-caption {
-    max-width: 400px;
+    max-width: 555px;
     margin: 0 auto;
     background-color: white;
     text-align: center;
@@ -769,7 +789,7 @@ footer ul {
     box-shadow: none;
     border: none;
     min-height: 100%;
-    padding: 100px 0;
+    padding: 40px 0;
     text-align: center
 }
 
@@ -779,7 +799,18 @@ footer ul {
 }
 
 .portfolio-modal .modal-content p {
-    margin-bottom: 30px
+    margin-bottom: 30px;
+    font-size: 1.4em;
+}
+
+.portfolio-modal .modal-content li {
+	font-size: 1.3em;
+}
+
+.portfolio-modal .modal-content .list-item {
+	margin: 0 auto;
+	width: 300px;
+	text-align: left;
 }
 
 .portfolio-modal .modal-content p.item-intro {
@@ -800,10 +831,10 @@ footer ul {
 
 .portfolio-modal .close-modal {
     position: absolute;
-    width: 75px;
-    height: 75px;
+    width: 40px;
+    height: 40px;
     background-color: transparent;
-    top: 25px;
+    top: 5px;
     right: 25px;
     cursor: pointer
 }
@@ -813,7 +844,7 @@ footer ul {
 }
 
 .portfolio-modal .close-modal .lr {
-    height: 75px;
+    height: 40px;
     width: 1px;
     margin-left: 35px;
     background-color: #222222;
@@ -824,7 +855,7 @@ footer ul {
 }
 
 .portfolio-modal .close-modal .lr .rl {
-    height: 75px;
+    height: 40px;
     width: 1px;
     background-color: #222222;
     transform: rotate(90deg);
@@ -861,7 +892,7 @@ body {
 }
 
 .p-about {
-    font-size: 18px !important;
+    font-size: 22px !important;
     font-weight: 300;
     color: #000;
 }
