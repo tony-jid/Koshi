@@ -185,8 +185,12 @@ fieldset[disabled] .btn-xl.active {
 }
 
 .navbar-custom .navbar-brand {
-    color: #617fde;
+    color: #617fde; /*#617fde*/
     font-family: 'Roboto', sans-serif;
+    background: url('../img/logo.png') no-repeat top left;
+    background-size: 100px 100px;
+    height: 100px;
+    width: 100px;
 }
 
 .navbar-custom .navbar-brand:hover,
@@ -219,25 +223,29 @@ fieldset[disabled] .btn-xl.active {
     text-transform: uppercase;
     font-weight: 400;
     letter-spacing: 1px;
-    color: #818b99;
+    color: white; /*#818b99*/
+}
+
+.navbar-custom .nav .dropdown-menu li a {
+	color: #000;
 }
 
 .navbar-custom .nav li a:hover,
 .navbar-custom .nav li a:focus {
-    color: #617fde;
-    outline: none
+    color: #EE3E31; /*#617fde*/
+    outline: none;
 }
 
 .navbar-custom .navbar-nav > .active > a {
     border-radius: 0;
     color: white;
-    background-color: #617fde;
+    background-color: #EE3E31; /*#617fde*/
 }
 
 .navbar-custom .navbar-nav > .active > a:hover,
 .navbar-custom .navbar-nav > .active > a:focus {
     color: white;
-    background-color: #617fde
+    background-color: #617fde;
 }
 
 /* padding in dropdown items*/
@@ -251,11 +259,11 @@ fieldset[disabled] .btn-xl.active {
 @media (min-width: 768px) {
     .navbar-custom {
         background-color: transparent;
-        padding: 25px 0;
+        padding: 20px 0;
         -webkit-transition: padding 0.3s;
         -moz-transition: padding 0.3s;
         transition: padding 0.3s;
-        border: none
+        border: none;
     }
     .navbar-custom .navbar-brand {
         font-size: 2em;
@@ -267,6 +275,11 @@ fieldset[disabled] .btn-xl.active {
         border-radius: 3px
     }
     
+    .navbar-custom .navbar-nav
+    {
+    	vertical-align: middle;
+    }
+    
     /* Hover dropdown menu*/
     .navbar-custom .dropdown:hover .dropdown-menu {
 	    display: block;
@@ -274,12 +287,14 @@ fieldset[disabled] .btn-xl.active {
 }
 
 @media (min-width: 768px) {
-    .navbar-custom.affix {
-        background-color: rgba(255, 255, 255, .95);
+    .navbar-custom.affix, .navbar-custom.affix-top {
+        /*background-color: rgba(255, 255, 255, .95);
         border-bottom: 1px solid #e9e9e9;
-        padding: 10px 0
+        padding: 10px 0;*/
+        background: url('../img/bg.png') no-repeat center top;
+    	background-size: cover;
     }
-    .navbar-custom.affix .navbar-brand {
+    .navbar-custom.affix .navbar-brand, .navbar-custom.affix-top .navbar-brand {
         font-size: 1.5em
     }
 }
@@ -341,10 +356,15 @@ header .intro-text .intro-heading {
 }
 
 section {
-    padding: 100px 0
+    padding: 50px 0
 }
 
 section h2.section-heading {
+    font-size: 40px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+section h2.product-heading {
     font-size: 40px;
     margin-top: 0;
     margin-bottom: 15px;
@@ -362,7 +382,7 @@ section h3.section-subheading {
 
 @media (min-width: 768px) {
     section {
-        padding: 150px 0
+        padding: 50px 0
     }
 }
 
@@ -931,6 +951,87 @@ body {
 	margin: 0px; 
 	text-align: center;	
 }
+
+.contact-icon {
+	font-size: 1em;
+	color: #617FDE;
+}
+
+#footer {
+	margin-top: -20px;
+	background: url('../img/bg-footer.png') no-repeat center top;
+    background-size: cover;
+}
+
+#footer .footer-content {
+	font-size: 1em;
+	color: white;
+}
+
+#footer .footer-contact a, #footer .footer-contact span {
+	font-size: 1.2em;
+	color: #EE3E31;
+}
+
+.first-section {
+	padding-top: 53px;
+	overflow: hidden; 
+}
+.first-section-sushi {
+	padding-top: 53px;
+	overflow: hidden;
+}
+@media (min-width: 768px) {
+	.first-section {
+		padding-top: 180px;
+	}
+	.first-section-sushi {
+		padding-top: 130px;
+	}
+}
+
+#story, #story2, #story3, #sushi-header {
+  position: relative;
+  z-index: 1;
+}
+
+#story::before, #story2::before, #story3::before, #sushi-header::before {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;  
+  opacity: .3; 
+  z-index: -1;
+}
+
+#story::before {
+	background: url('../img/story-bg.jpg') no-repeat center top;
+	background-size: cover;
+}
+
+#story2::before {
+	background: url('../img/story-bg-2.jpg') no-repeat center top;
+  	background-size: cover;
+}
+
+#story3::before {
+	background: url('../img/story-bg-3.jpg') no-repeat center top;
+  	background-size: cover;
+}
+
+#sushi-header {
+	margin-bottom: 30px;
+	padding: 50px 0;
+	height: 300px;
+}
+#sushi-header::before {
+	background: url('../img/sushi-header.jpg') no-repeat center;
+  	background-size: cover;
+}
+
+
 
 
 

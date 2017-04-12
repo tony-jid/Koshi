@@ -10,12 +10,12 @@
 	100% { left: -400%; }
 }
 
-div#slider { 
+#slider { 
 	margin-top: 53px;
 	overflow: hidden; 
 }
 
-div#slider figure { 
+#slider figure { 
   position: relative;
   width: 500%;
   margin: 0;
@@ -27,11 +27,12 @@ div#slider figure {
   animation: h_slider 24s ease-out infinite; 
 }
 
-div#slider figure img { width: 20%; float: left; }
+#slider figure img { width: 20%; float: left; }
 
 @media (min-width: 768px) {
-	div#slider {
-		margin-top: 0px;
+	#slider {
+		margin-top: 80px;
+		margin-bottom: 50px;
 	}
 }
 
