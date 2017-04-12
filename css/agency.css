@@ -5,7 +5,7 @@
  */
 body {
     overflow-x: hidden;
-    font-family: 'Roboto', sans-serif
+    font-family: 'Roboto', sans-serif;
 }
 
 .text-muted {
@@ -50,9 +50,8 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 20px;
     color: #333;
 }
@@ -68,6 +67,10 @@ h6 {
     margin: 0 auto
 }
 
+.bg-lightest-gray {
+    background-color: #fcfcfc
+}
+
 .bg-light-gray {
     background-color: #f4f4f5
 }
@@ -81,9 +84,7 @@ h6 {
     background-color: #617fde;
     border-color: #617fde;
     border-radius: 30px;
-    font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
-    font-weight: 300
 }
 
 .btn-primary:hover,
@@ -130,9 +131,7 @@ fieldset[disabled] .btn-primary.active {
     color: white;
     background-color: #617fde;
     border-color: #617fde;
-    font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
-    font-weight: 400;
     border-radius: 50px;
     font-size: 16px;
     padding: 15px 30px
@@ -186,7 +185,6 @@ fieldset[disabled] .btn-xl.active {
 
 .navbar-custom .navbar-brand {
     color: #617fde; /*#617fde*/
-    font-family: 'Roboto', sans-serif;
     background: url('../img/logo.png') no-repeat top left;
     background-size: 100px 100px;
     height: 100px;
@@ -207,7 +205,6 @@ fieldset[disabled] .btn-xl.active {
 .navbar-custom .navbar-toggle {
     background-color: #617fde;
     border-color: #617fde;
-    font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
     color: white;
     font-size: 12px
@@ -219,11 +216,10 @@ fieldset[disabled] .btn-xl.active {
 }
 
 .navbar-custom .nav li a {
-    font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
-    font-weight: 400;
     letter-spacing: 1px;
     color: white; /*#818b99*/
+    font-weight: 900;
 }
 
 .navbar-custom .nav .dropdown-menu li a {
@@ -232,7 +228,7 @@ fieldset[disabled] .btn-xl.active {
 
 .navbar-custom .nav li a:hover,
 .navbar-custom .nav li a:focus {
-    color: #EE3E31; /*#617fde*/
+    color: red; /*#617fde*/
     outline: none;
 }
 
@@ -245,7 +241,7 @@ fieldset[disabled] .btn-xl.active {
 .navbar-custom .navbar-nav > .active > a:hover,
 .navbar-custom .navbar-nav > .active > a:focus {
     color: white;
-    background-color: #617fde;
+    background-color: #EE3E31; /*#617fde*/
 }
 
 /* padding in dropdown items*/
@@ -317,18 +313,13 @@ header .intro-text {
 }
 
 header .intro-text .intro-lead-in {
-    font-family: 'Roboto', sans-serif;
     font-size: 22px;
-    font-weight: 300;
     line-height: 22px;
     margin-bottom: 25px
 }
 
 header .intro-text .intro-heading {
-    font-family: 'Roboto', sans-serif;
-    ;
     text-transform: uppercase;
-    font-weight: 300;
     font-size: 50px;
     line-height: 50px;
     margin-bottom: 25px
@@ -340,15 +331,12 @@ header .intro-text .intro-heading {
         padding-bottom: 200px
     }
     header .intro-text .intro-lead-in {
-        font-family: 'Roboto', sans-serif;
         font-size: 40px;
         line-height: 40px;
         margin-bottom: 25px
     }
     header .intro-text .intro-heading {
-        font-family: 'Roboto', sans-serif;
         text-transform: uppercase;
-        font-weight: 400;
         font-size: 64px;
         line-height: 75px;
         margin-bottom: 50px
@@ -362,19 +350,21 @@ section {
 section h2.section-heading {
     font-size: 40px;
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    color: red;
+    text-shadow: rgb(0, 0, 0) 0px 0px 5px;
 }
 section h2.product-heading {
     font-size: 40px;
     margin-top: 0;
     margin-bottom: 15px;
+    color: red;
+    text-shadow: rgb(0, 0, 0) 0px 0px 5px;
 }
 
 section h3.section-subheading {
     font-size: 17px;
-    font-family: 'Roboto', sans-serif;
     text-transform: none;
-    font-weight: 300;
     color: #6f7c82;
     line-height: 1.5;
     margin-bottom: 75px
@@ -443,7 +433,7 @@ section h3.section-subheading {
     margin: 0 auto;
     background-color: white;
     text-align: center;
-    padding: 25px;
+    padding: 10px;
     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -745,7 +735,6 @@ footer {
 
 footer span.copyright {
     line-height: 40px;
-    font-family: 'Roboto', sans-serif;
     color: #8c8f94;
     text-transform: uppercase;
     text-transform: none
@@ -754,8 +743,6 @@ footer span.copyright {
 footer ul.quicklinks {
     margin-bottom: 0;
     line-height: 40px;
-    font-family: 'Roboto', sans-serif;
-    ;
     text-transform: uppercase;
     text-transform: none
 }
@@ -913,19 +900,16 @@ body {
 
 .p-about {
     font-size: 22px !important;
-    font-weight: 300;
     color: #000;
 }
 
 .span-about {
     font-size: 16px;
-    font-weight: 300;
     color: rgba(0, 0, 0, 0.6);
 }
 
 .footer-text {
     font-size: 15px;
-    font-weight: 400;
     color: #414446;
 }
 
@@ -939,7 +923,6 @@ body {
 
 .before-header {
     font-size: 24px;
-    font-weight: 200;
 }
 
 .bottom-margin-sm {
@@ -977,7 +960,7 @@ body {
 	padding-top: 53px;
 	overflow: hidden; 
 }
-.first-section-sushi {
+.first-section-product {
 	padding-top: 53px;
 	overflow: hidden;
 }
@@ -985,17 +968,17 @@ body {
 	.first-section {
 		padding-top: 180px;
 	}
-	.first-section-sushi {
+	.first-section-product {
 		padding-top: 130px;
 	}
 }
 
-#story, #story2, #story3, #sushi-header {
+#story, #story2, #story3, #sushi-header, #rpr-header, #gyoza-header {
   position: relative;
   z-index: 1;
 }
 
-#story::before, #story2::before, #story3::before, #sushi-header::before {
+#story::before, #story2::before, #story3::before, #sushi-header::before, #rpr-header::before, #gyoza-header::before {
   content: "";
   position: absolute;
   top: 0; 
@@ -1017,6 +1000,7 @@ body {
 }
 
 #story3::before {
+	opacity: .2;
 	background: url('../img/story-bg-3.jpg') no-repeat center top;
   	background-size: cover;
 }
@@ -1024,14 +1008,40 @@ body {
 #sushi-header {
 	margin-bottom: 30px;
 	padding: 50px 0;
-	height: 300px;
 }
 #sushi-header::before {
 	background: url('../img/sushi-header.jpg') no-repeat center;
   	background-size: cover;
+  	opacity: .2;
 }
 
+#rpr-header {
+	margin-bottom: 30px;
+	padding: 50px 0;
+	
+}
+#rpr-header::before {
+	background: url('../img/crepe-header.jpg') no-repeat center;
+  	background-size: cover;
+  	opacity: .2;
+}
 
+#gyoza-header {
+	margin-bottom: 30px;
+	padding: 50px 0;
+	
+}
+#gyoza-header::before {
+	background: url('../img/gyoza-header.jpg') no-repeat center;
+  	background-size: cover;
+  	opacity: .2;
+}
+
+@media (min-width: 768px) {
+	#sushi-header, #rpr-header, #gyoza-header {
+		height: 300px;
+	}
+}
 
 
 
