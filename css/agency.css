@@ -974,10 +974,15 @@ body {
 }
 
 #story, #story2, #story3, #sushi-header, #rpr-header, #gyoza-header {
-  position: relative;
-  z-index: 1;
+	position: relative;
+	z-index: 1;
 }
 
+#story, #story2, #story3 {
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.8);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.8);
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.8);
+}
 #story::before, #story2::before, #story3::before, #sushi-header::before, #rpr-header::before, #gyoza-header::before {
   content: "";
   position: absolute;
@@ -1005,9 +1010,16 @@ body {
   	background-size: cover;
 }
 
-#sushi-header {
+#sushi-header, #rpr-header, #gyoza-header {
 	margin-bottom: 30px;
 	padding: 50px 0;
+	-webkit-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.8);
+	-moz-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.8);
+	box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.8);
+}
+
+#sushi-header {
+	
 }
 #sushi-header::before {
 	background: url('../img/sushi-header.jpg') no-repeat center;
@@ -1016,9 +1028,7 @@ body {
 }
 
 #rpr-header {
-	margin-bottom: 30px;
-	padding: 50px 0;
-	
+		
 }
 #rpr-header::before {
 	background: url('../img/crepe-header.jpg') no-repeat center;
@@ -1027,8 +1037,7 @@ body {
 }
 
 #gyoza-header {
-	margin-bottom: 30px;
-	padding: 50px 0;
+	
 	
 }
 #gyoza-header::before {
