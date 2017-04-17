@@ -973,17 +973,22 @@ body {
 	}
 }
 
-#story, #story2, #story3, #sushi-header, #rpr-header, #gyoza-header {
+#story, #story2, #story3
+, #quality
+, #sushi-header, #rpr-header, #gyoza-header {
 	position: relative;
 	z-index: 1;
 }
 
-#story, #story2, #story3 {
+#story, #story2, #story3
+, #quality {
 	-webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.8);
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.8);
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.8);
 }
-#story::before, #story2::before, #story3::before, #sushi-header::before, #rpr-header::before, #gyoza-header::before {
+#story::before, #story2::before, #story3::before
+, #quality::before
+, #sushi-header::before, #rpr-header::before, #gyoza-header::before {
   content: "";
   position: absolute;
   top: 0; 
@@ -1007,6 +1012,12 @@ body {
 #story3::before {
 	opacity: .2;
 	background: url('../img/story-bg-3.jpg') no-repeat center top;
+  	background-size: cover;
+}
+
+#quality::before {
+	opacity: .15;
+	background: url('../img/quality-bg-1.jpg') no-repeat center top;
   	background-size: cover;
 }
 
@@ -1058,6 +1069,18 @@ body {
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.8);
 }
 
+.koshi-brandmark {
+	padding-top: 20px;
+	width: 250px;
+	height: 96px;
+}
+@media (min-width: 768px) {
+	.koshi-brandmark {
+		padding-top: 0;
+		width: 300px;
+		height: 103px;
+	}
+}
 
 
 
