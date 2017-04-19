@@ -41,7 +41,8 @@ a:hover,
 a:focus,
 a:active,
 a.active {
-    color: #fec503
+    color: #fec503;
+    text-decoration: none;
 }
 
 h1,
@@ -348,7 +349,8 @@ section {
 }
 
 section h2.section-heading {
-    font-size: 40px;
+	font-family: 'Kaushan Script', 'Roboto', sans-serif;
+    font-size: 30px;
     margin-top: 0;
     margin-bottom: 20px;
     color: red;
@@ -899,7 +901,7 @@ body {
 }
 
 .p-about {
-    font-size: 22px !important;
+    font-size: 18px !important;
     color: #000;
 }
 
@@ -932,7 +934,8 @@ body {
 .product-item-name {
 	padding: 10px 0px; 
 	margin: 0px; 
-	text-align: center;	
+	text-align: center;
+	white-space: nowrap;
 }
 
 .contact-icon {
@@ -974,21 +977,21 @@ body {
 }
 
 #story, #story2, #story3
-, #quality
-, #sushi-header, #rpr-header, #gyoza-header {
+, #quality, #quality2, #quality3
+, #product-header, #sushi-header, #rpr-header, #gyoza-header {
 	position: relative;
 	z-index: 1;
 }
 
 #story, #story2, #story3
-, #quality {
+, #quality, #quality2, #quality3 {
 	-webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.8);
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.8);
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.8);
 }
 #story::before, #story2::before, #story3::before
-, #quality::before
-, #sushi-header::before, #rpr-header::before, #gyoza-header::before {
+, #quality::before, #quality2::before, #quality3::before
+, #product-header::before, #sushi-header::before, #rpr-header::before, #gyoza-header::before {
   content: "";
   position: absolute;
   top: 0; 
@@ -1003,25 +1006,32 @@ body {
 	background: url('../img/story-bg.jpg') no-repeat center top;
 	background-size: cover;
 }
-
 #story2::before {
 	background: url('../img/story-bg-2.jpg') no-repeat center top;
   	background-size: cover;
 }
-
 #story3::before {
 	opacity: .2;
 	background: url('../img/story-bg-3.jpg') no-repeat center top;
   	background-size: cover;
 }
-
 #quality::before {
 	opacity: .15;
 	background: url('../img/quality-bg-1.jpg') no-repeat center top;
   	background-size: cover;
 }
+#quality2::before {
+	opacity: .4;
+	background: url('../img/quality-bg-2.jpg') no-repeat center bottom;
+  	background-size: cover;
+}
+#quality3::before {
+	opacity: .25;
+	background: url('../img/quality-bg-3.jpg') no-repeat center top;
+  	background-size: cover;
+}
 
-#sushi-header, #rpr-header, #gyoza-header {
+#product-header, #sushi-header, #rpr-header, #gyoza-header {
 	margin-bottom: 30px;
 	padding: 50px 0;
 	-webkit-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.8);
@@ -1029,8 +1039,18 @@ body {
 	box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.8);
 }
 
-#sushi-header {
+#product-header {
 	
+}
+#product-header::before {
+	background: url('../img/product-header.jpg') no-repeat center;
+  	background-size: cover;
+  	opacity: .25;
+}
+
+#sushi-header {
+	margin: 0;
+	padding: 0;
 }
 #sushi-header::before {
 	background: url('../img/sushi-header.jpg') no-repeat center;
@@ -1042,7 +1062,7 @@ body {
 		
 }
 #rpr-header::before {
-	background: url('../img/crepe-header.jpg') no-repeat center;
+	background: url('../img/crepe-header.jpg') no-repeat top center;
   	background-size: cover;
   	opacity: .2;
 }
@@ -1059,7 +1079,9 @@ body {
 
 @media (min-width: 768px) {
 	#sushi-header, #rpr-header, #gyoza-header {
-		height: 300px;
+		padding: 10px 0;
+		margin-bottom: 20px;
+		/*height: 300px;*/
 	}
 }
 
@@ -1071,6 +1093,19 @@ body {
 
 .koshi-brandmark {
 	padding-top: 20px;
+	width: 180px;
+	height: 200px;
+}
+@media (min-width: 768px) {
+	.koshi-brandmark {
+		padding-top: 0;
+		width: 220px;
+		height: 220px;
+	}
+}
+
+/*.koshi-brandmark {
+	padding-top: 20px;
 	width: 250px;
 	height: 96px;
 }
@@ -1080,8 +1115,74 @@ body {
 		width: 300px;
 		height: 103px;
 	}
+}*/
+
+.food-safety {
+	width: 250px;
+}
+@media (min-width: 768px) {
+	.food-safety {
+		width: 350px;
+	}
 }
 
+.pic-heading {
+	width: 200px;
+}
+.pic-sub-heading {
+	
+}
+@media (min-width: 768px) {
+	.pic-heading {
+		
+	}
+	.pic-sub-heading {
+		
+	}
+}
+
+.main-product-desc {
+	
+}
+@media (min-width: 768px) {
+	.main-product-desc {
+		height: 100px;
+		overflow: auto;
+	}
+}
+
+.download {
+	position: fixed;
+	z-index: 9999;
+	bottom: 0;
+	right: 0;
+	cursor: pointer;
+	margin: 30px;
+}
+.download-label {
+	position: relative;
+	right: 10px;
+}
+@media (min-width: 768px) {
+	.download {
+		margin: 50px;
+	}
+}
+
+.text-legend {
+	font-family: 'Kaushan Script', 'Roboto', sans-serif;
+	font-size: 30px;
+}
+.text-sub-legend {
+	padding: 0 200px;
+}
+.list-info {
+	list-style-image: url('../img/bullet.png');
+	font-size: 18px;
+}
+.order-form {
+	font-size: 16px;
+}
 
 
 
