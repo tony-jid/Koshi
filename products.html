@@ -60,7 +60,7 @@
                         <a class="page-scroll" href="quality.html#quality">Quality Assurance</a>
                     </li>
                     <li class="dropdown">
-                    	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <span class="caret"></span></a>
+                    	<a class="dropdown-toggle" data-toggle="dropdown">Products <span class="caret"></span></a>
                     	<ul class="dropdown-menu">
                     		<li>
                     			<a class="page-scroll" href="#sushi">Sushi</a>
@@ -456,6 +456,12 @@
 
     <!-- Theme JavaScript -->
     <script src="js/agency.min.js"></script>
+    
+    <script type="text/javascript">
+		$(document).ready(function(){
+			$('#menuProduct').click(function(){ window.location.replace('products.html'); });
+		});
+	</script>
 </body>
 
 </html>

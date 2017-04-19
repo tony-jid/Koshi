@@ -61,10 +61,10 @@
                         <a class="page-scroll" href="quality.html#quality">Quality Assurance</a>
                     </li>
                     <li class="dropdown">
-                    	<a href="products.html" class="dropdown-toggle" data-toggle="dropdown">Products <span class="caret"></span></a>
+                    	<a id="menuProduct" href="#" class="dropdown-toggle" data-toggle="dropdown">Products <span class="caret"></span></a>
                     	<ul class="dropdown-menu">
                     		<li>
-                    			<a class="page-scroll" href="products.html#sushi">Sushi</a>
+                    			<a class="page-scroll" href="products.html#to_sushi">Sushi</a>
                     		</li>
                     		<li>
                     			<a class="page-scroll" href="products.html#to_rpr">Rice Paper Rolls</a>
@@ -217,7 +217,7 @@
 		                    	You can pick up your order anytime during office hours, but call us to arrange a time for Saturday pick ups. Our address is 170 Perry Street Fairfield 3078
 		                    </li>
 		                    <li>
-		                    	Payment: Payment must be received prior to delivery or pick up. We only accept credit card payments over the phone.
+		                    	Payment must be received prior to delivery or pick up. We only accept credit card payments over the phone.
 		                    </li>
 		                    <li>
 		                    	Your satisfaction is important to us. If there is anything about our product or service you are not happy about, we will work hard to fix any problem.
@@ -308,6 +308,12 @@
 
     <!-- Theme JavaScript -->
     <script src="js/agency.min.js"></script>
+    
+    <script type="text/javascript">
+		$(document).ready(function(){
+			$('#menuProduct').click(function(){ window.location.replace('products.html'); });
+		});
+	</script>
 </body>
 
 </html>
