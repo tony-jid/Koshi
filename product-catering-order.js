@@ -1,18 +1,18 @@
 var prod_code = [
-		{code: 1, name: 'Cooked Tuna', desc: 'Cooked Tuna Sushi Rolls', price: 2.0, total: 0.0}
-		, {code: 2, name: 'Vegetable', desc: 'Vegetable Sushi Rolls', price: 2.0, total: 0.0}
-		, {code: 3, name: 'Fresh Salmon', desc: 'Fresh Salmon Sushi Rolls', price: 2.20, total: 0.0}
-		, {code: 4, name: 'California', desc: 'California Sushi Rolls', price: 2.0, total: 0.0}
-		, {code: 5, name: 'Teriyaki Chicken', desc: 'Teriyaki Chicken Sushi Rolls', price: 2.0, total: 0.0}
-		, {code: 6, name: 'Crispy Chicken', desc: 'Crispy Chicken Sushi Rolls', price: 2.0, total: 0.0}
-		, {code: 7, name: 'Prawn', desc: 'Prawn Rice Paper Rolls', price: 2.0, total: 0.0}
-		, {code: 8, name: 'Chicken', desc: 'Chicken Rice Paper Rolls', price: 2.0, total: 0.0}
-		, {code: 9, name: 'Spicy Pork', desc: 'Spicy Pork Rice Paper Rolls', price: 2.0, total: 0.0}
-		, {code: 10, name: 'Pork', desc: 'Pork', price: 18.0, total: 0.0}
-		, {code: 11, name: 'Chicken', desc: 'Chicken', price: 18.0, total: 0.0}
-		, {code: 12, name: 'Vegetable', desc: 'Vegetable', price: 18.0, total: 0.0}
-		, {code: 13, name: 'Platter A Sushi Roll Combo Platter', desc: 'Platter A Sushi Roll Combo Platter', price: 70.0, total: 0.0}
-		, {code: 14, name: 'Platter B Nigiri Combo Platter', desc: 'Platter B Nigiri Combo Platter', price: 70.0, total: 0.0}
+		{code: 1, name: 'Cooked Tuna', desc: 'Sushi Rolls - Cooked Tuna', price: 2.0, amt: 0, total: 0.0}
+		, {code: 2, name: 'Vegetable', desc: 'Sushi Rolls - Vegetable', price: 2.0, amt: 0, total: 0.0}
+		, {code: 3, name: 'Fresh Salmon', desc: 'Sushi Rolls - Fresh Salmon', price: 2.20, amt: 0, total: 0.0}
+		, {code: 4, name: 'California', desc: 'Sushi Rolls - California', price: 2.0, amt: 0, total: 0.0}
+		, {code: 5, name: 'Teriyaki Chicken', desc: 'Sushi Rolls - Teriyaki Chicken', price: 2.0, amt: 0, total: 0.0}
+		, {code: 6, name: 'Crispy Chicken', desc: 'Sushi Rolls - Crispy Chicken', price: 2.0, amt: 0, total: 0.0}
+		, {code: 7, name: 'Prawn', desc: 'Rice Paper Rolls - Prawn', price: 2.0, amt: 0, total: 0.0}
+		, {code: 8, name: 'Chicken', desc: 'Rice Paper Rolls - Chicken', price: 2.0, amt: 0, total: 0.0}
+		, {code: 9, name: 'Spicy Pork', desc: 'Rice Paper Rolls - Spicy Pork', price: 2.0, amt: 0, total: 0.0}
+		, {code: 10, name: 'Pork', desc: 'Gyoza - Pork', price: 18.0, amt: 0, total: 0.0}
+		, {code: 11, name: 'Chicken', desc: 'Gyoza - Chicken', price: 18.0, amt: 0, total: 0.0}
+		, {code: 12, name: 'Vegetable', desc: 'GYoza - Vegetable', price: 18.0, amt: 0, total: 0.0}
+		, {code: 13, name: 'Platter A Sushi Roll Combo Platter', desc: 'Platter A - Sushi Roll Combo Platter', price: 70.0, amt: 0, total: 0.0}
+		, {code: 14, name: 'Platter B Nigiri Combo Platter', desc: 'Platter B - Nigiri Combo Platter', price: 70.0, amt: 0, total: 0.0}
 ]
 
 var _prefix_prod_name = "#labelName";
@@ -21,8 +21,19 @@ var _prefix_prod_total = "#txtTotal";
 var _prefix_prod_code = "#hiddenCode";
 var _prefix_prod_price = "#hiddenPrice";
 
-var $txtName, $txtTel, $txtAdd;
+var $txtName, $txtTel, $txtEmail, $txtAdd;
 var $txtOrderTotal;
+
+function initMoneyInput(control, min, max) {
+	$(control).autoNumeric('init', { vMin: min, vMax: max, aSign: '$' });
+}
+function setMoneyInputValue(control, val) {
+	$(control).autoNumeric('set', val);
+}
+function getMoneyInputValue(control) {
+	return $(control).autoNumeric('get');
+	//return $(control).val().replace(/\$/i, '');
+}
 
 function initTouchSpinInput(control, min, max, initVal, step) {
 	$(control).TouchSpin({
@@ -48,9 +59,12 @@ function setProductTouchSpin() {
 		desc = prod_code[i]['desc'];
 		price = prod_code[i]['price'];
 		
+		initMoneyInput(_prefix_prod_total + code, 0, 99999);
+		setMoneyInputValue(_prefix_prod_total + code, 0);
+		//$(_prefix_prod_total + code).val(0);
+		
 		$(_prefix_prod_code + code).val(code);
 		$(_prefix_prod_name + code).text(name + ' @ $' + price + '');
-		$(_prefix_prod_total + code).val(0);
 		$(_prefix_prod_price + code).val(price);
 		
 		// store the code in the "name" property
@@ -72,7 +86,8 @@ function calProductTotal(control, code) {
 	price = $(_prefix_prod_price + code).val();
 	
 	total = amt * price;
-	$(_prefix_prod_total + code).val(total);
+	//$(_prefix_prod_total + code).val(total);
+	setMoneyInputValue(_prefix_prod_total + code, total);
 	
 	setOrderTotal(calOrderTotal());
 }
@@ -80,7 +95,8 @@ function calProductTotal(control, code) {
 function calOrderTotal() {
 	orderTotal = 0.0;
 	for (var i = 0; i < prod_code.length; i++) {
-		prodTotal = parseFloat($(_prefix_prod_total + prod_code[i]['code']).val());
+		//prodTotal = parseFloat($(_prefix_prod_total + prod_code[i]['code']).val());
+		prodTotal = parseFloat(getMoneyInputValue(_prefix_prod_total + prod_code[i]['code']));
 		orderTotal += prodTotal;
 	}
 	
@@ -89,17 +105,19 @@ function calOrderTotal() {
 }
 
 function setOrderTotal(total) {
-	$txtOrderTotal.val(total);
+	setMoneyInputValue($txtOrderTotal, total);
 }
 
 function initPage()
 {
 	$txtName = $('#txtName');
 	$txtTel = $('#txtTel');
+	$txtEmail = $('txtEmail');
 	$txtAdd = $('#txtAdd');
 	$txtOrderTotal = $('#txtOrderTotal');
 	
-	$txtOrderTotal.val(0);
+	initMoneyInput($txtOrderTotal, 0, 999999);
+	setMoneyInputValue($txtOrderTotal, 0);
 	setProductTouchSpin();
 }
 
