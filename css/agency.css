@@ -5,7 +5,7 @@
  */
 body {
     overflow-x: hidden;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', 'Roboto', sans-serif;
 }
 
 .text-muted {
@@ -988,20 +988,20 @@ body {
 	}
 }
 
-#story, #story2, #story3
+#story1, #story2, #story3
 , #quality, #quality2, #quality3
 , #product-header, #sushi-header, #rpr-header, #gyoza-header {
 	position: relative;
 	z-index: 1;
 }
 
-#story, #story2, #story3
+#story1, #story2, #story3
 , #quality, #quality2, #quality3 {
 	-webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.8);
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.8);
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.8);
 }
-#story::before, #story2::before, #story3::before
+#story1::before, #story2::before, #story3::before
 , #quality::before, #quality2::before, #quality3::before
 , #product-header::before, #sushi-header::before, #rpr-header::before, #gyoza-header::before {
   content: "";
@@ -1014,7 +1014,7 @@ body {
   z-index: -1;
 }
 
-#story::before {
+#story1::before {
 	background: url('../img/story-bg.jpg') no-repeat center top;
 	background-size: cover;
 }
@@ -1111,8 +1111,8 @@ body {
 @media (min-width: 768px) {
 	.koshi-brandmark {
 		padding-top: 0;
-		width: 220px;
-		height: 220px;
+		width: 200px;
+		height: 200px;
 	}
 }
 
@@ -1201,7 +1201,7 @@ body {
 	margin: 0;
 }
 .custom-home .col-md-6
-, .custom-home .col-sm-6
+, .custom-home .col-sm-12, .custom-home .col-sm-11, .custom-home .col-sm-10, .custom-home .col-sm-9, .custom-home .col-sm-8, .custom-home .col-sm-7, .custom-home .col-sm-6, .custom-home .col-sm-5, .custom-home .col-sm-4, .custom-home .col-sm-3, .custom-home .col-sm-2, .custom-home .col-sm-1
 , .custom-home .portfolio-item {
 	padding: 0;
 	margin: 0;
@@ -1241,11 +1241,36 @@ body {
 	}
 }
 
+.bring-front {
+	position: relative;
+	z-index: 99;
+}
+.bring-back {
+	position: relative;
+	z-index: 9;
+}
+.overlap-img {
+	position: absolute;
+}
 
+.story-brush {
+	position: relative;
+	top: -50px;
+}
 
+.bg-black-gradient {
+	background: url("../img/bg-black-gradient.png") repeat-y center;
+}
 
+.koshi-text-heading {
+	font-size: 20px;
+}
+.koshi-text-about {
+	font-size: 17px;
+}
 
-
-
+.koshi-text-white {
+	color: #FFF;
+}
 
 
