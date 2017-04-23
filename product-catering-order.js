@@ -15,14 +15,16 @@ var prod_code = [
 		, {code: 14, name: 'Platter B Nigiri Combo Platter', desc: 'Platter B - Nigiri Combo Platter', price: 70.0, amt: 0, total: 0.0}
 ]
 
+var _minimum_order = 80;
 var _prefix_prod_name = "#labelName";
 var _prefix_prod_amt = "#txtAmt";
 var _prefix_prod_total = "#txtTotal";
 var _prefix_prod_code = "#hiddenCode";
 var _prefix_prod_price = "#hiddenPrice";
 
-var $txtName, $txtTel, $txtEmail, $txtAdd;
+var $txtName, $txtTel, $txtEmail, $txtAdd, $btnOrder;
 var $txtOrderTotal;
+var $alertTop, $alertBottom, $alertMsg;
 
 function initMoneyInput(control, min, max) {
 	$(control).autoNumeric('init', { vMin: min, vMax: max, aSign: '$' });
@@ -112,16 +114,143 @@ function initPage()
 {
 	$txtName = $('#txtName');
 	$txtTel = $('#txtTel');
-	$txtEmail = $('txtEmail');
+	$txtEmail = $('#txtEmail');
 	$txtAdd = $('#txtAdd');
 	$txtOrderTotal = $('#txtOrderTotal');
+	$btnOrder = $('#btnOrder');
+	$alertTop = $('#alertTop');
+	$alertBottom = $('#alertBottom');
+	$alertMsg = $('.alert-msg');
+	
+	$txtEmail.inputmask('email');
+	$txtTel.inputmask('9999-999-999'); // .inputmask("isComplete")
+	
+	$btnOrder.click(function(){
+		confirmOrder();
+	});
 	
 	initMoneyInput($txtOrderTotal, 0, 999999);
 	setMoneyInputValue($txtOrderTotal, 0);
 	setProductTouchSpin();
+	
+	hideAlert();
 }
 
+function confirmOrder() {
+	if (validateCustomerDetails()) {
+		if (checkMinimumOrder()) {
+			if (isCaptchaSolved()) {
+				hideAlert();
+				submitOrder();
+			} else {
+				showAlertBottom('Please identify yourself, if you are not a bot');
+			}
+		} else {
+			showAlertBottom('The minimum order value is $' + _minimum_order);
+		}
+	}
+}
 
+function isCaptchaSolved() {
+	response = grecaptcha.getResponse();
+	if (response.length)
+		return response;
+	else
+		return false;
+}
+
+function showAlertTop(msg, control) {
+	$alertMsg.text(msg);
+	$alertTop.show();
+	
+	if (typeof(control) !== 'undefined' )
+		$(control).focus();
+}
+
+function showAlertBottom(msg) {
+	$alertMsg.text(msg);
+	$alertBottom.show();
+}
+
+function hideAlert() {
+	$alertTop.hide();
+	$alertBottom.hide();
+}
+
+function validateCustomerDetails() {
+	if ($txtName.val().trim().length) {
+		if ($txtTel.inputmask('isComplete')) {
+			if ($txtEmail.inputmask('isComplete')) {
+				if ($txtAdd.val().trim().length) {
+					hideAlert();
+					return true;
+				} else {
+					showAlertTop('Please enter your addess', $txtAdd);
+				}
+			} else {
+				showAlertTop('Please enter your email', $txtEmail);
+			}
+		} else {
+			showAlertTop('Please enter your contact number', $txtTel);
+		}
+	} else {
+		showAlertTop('Please enter your name', $txtName);
+	}
+	
+	return false;
+}
+
+function checkMinimumOrder() {
+	total = getMoneyInputValue($txtOrderTotal);
+	
+	if (total >= _minimum_order) 
+		return true;
+	else
+		return false;
+}
+
+function submitOrder() {
+	orderItems = '<table style="box-sizing: border-box; font-size: 14px; width: 500px; margin: 0 auto; padding: 0;" cellspacing="0" cellpadding="0"><tbody>';
+	
+	for (var i = 0; i < prod_code.length; i++) {
+		amt = parseFloat(getTouchSpinInputValue(_prefix_prod_amt + prod_code[i]['code']));
+		if (amt > 0) {
+			desc = prod_code[i]['desc'];
+			price = prod_code[i]['price'];
+			total = getMoneyInputValue(_prefix_prod_total + prod_code[i]['code']);
+			
+			orderItems += '<tr style="width:500px">'
+			orderItems += '<td style="box-sizing: border-box; font-size: 14px; vertical-align: top; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top" width="45%">' + desc + ' @ $' + price + '</td>';
+			orderItems += '<td style="box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" align="right" valign="top" width="20%">' + amt + '</td>';
+			orderItems += '<td style="box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" align="right" valign="top" width="35%">$' + total + '</td>';
+			orderItems += '</tr>';
+		}		
+	}
+	
+	orderItems += '</tbody></table>';
+	
+	//alert(orderItems);
+	sendEmail(orderItems);
+}
+
+function sendEmail(orderItems) {
+	emailjs.send("gmail", "order_form"
+		, {
+			"cus_email": $txtEmail.val()
+			,"cus_name": $txtName.val()
+			,"order_date": new Date()
+			,"order_time": new Date()
+			,"cus_tel": $txtTel.val()
+			,"cus_address": $txtAdd.val()
+			,"order_items": orderItems
+			,"order_total": getMoneyInputValue($txtOrderTotal)
+		}
+	).then(function(response) {
+		   alert("SUCCESS. status=%d, text=%s", response.status, response.text);
+	}, function(err) {
+		alert("FAILED. error=", err);
+	});
+}
 
 
 

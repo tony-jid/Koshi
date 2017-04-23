@@ -30,6 +30,15 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    <style type="text/css">
+    	.g-recaptcha {
+    		margin-bottom: 15px;
+    	}
+    	.g-recaptcha > div {
+    		margin: 0 auto;
+    	}
+    </style>
 </head>
 
 <body id="page-top" class="index">
@@ -117,25 +126,33 @@
 	        	
         		<form class="form-horizontal order-form">
 					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-8 text-center">
+							<div id="alertTop" class="alert alert-danger" role="alert" style="font-size: .9em">
+							  	<span class="alert-msg"></span>
+							  	<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
 						<label class="col-sm-offset-2 col-sm-2 control-label">*Name</label>
 						<div class="col-sm-2 text-center">
-							<input type="text" id="txtName" class="form-control" maxlength="4">
+							<input type="text" id="txtName" class="form-control" value="Ton">
 		    			</div>
 		    			<label class="col-sm-2 control-label">*Contact No.</label>
 		    			<div class="col-sm-2 text-center">
-							<input type="text" id="txtTel" class="form-control" maxlength="4">
+							<input type="text" id="txtTel" class="form-control" value="9999999999">
 		    			</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-offset-2 col-sm-2 control-label">*Email</label>
 						<div class="col-sm-4 text-center">
-							<input type="text" id="txtEmail" class="form-control" maxlength="70">
+							<input type="text" id="txtEmail" class="form-control" value="thawatchai.j14@gmail.com">
 		    			</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-offset-2 col-sm-2 control-label">*Address</label>
 						<div class="col-sm-4 text-center">
-							<textarea id="txtAdd" rows="3" class="form-control"></textarea>
+							<textarea id="txtAdd" rows="3" class="form-control">VIC</textarea>
 		    			</div>
 					</div>
 				</form>
@@ -338,7 +355,16 @@
 		    			</div>
 					</div>
 					<div class="form-group text-center">
-						<a href="product-catering-order.html" class="btn btn-default btn-lg" role="button">
+						<div class="g-recaptcha" data-sitekey="6LcCSx4UAAAAAI7i4vnSIK2TJsMcndDw_IKP1puu"></div>
+						
+						<div class="col-sm-offset-2 col-sm-8 text-center">
+							<div id="alertBottom" class="alert alert-danger" role="alert" style="font-size: .9em">
+							  	<span class="alert-msg"></span>
+							  	<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+							</div>
+						</div>
+						
+						<a id="btnOrder" class="btn btn-default btn-lg" role="button">
 	           				<img src="img/button-bullet.png" >
 	           				ORDER NOW
 	           				<img src="img/button-bullet.png" >
@@ -417,8 +443,20 @@
     <!-- Theme JavaScript -->
     <script src="js/agency.min.js"></script>
     
+    <!-- reCAPTCHA API -->
+    <script src='https://www.google.com/recaptcha/api.js?hl=en'></script>
+
+	<!-- EmailJS API -->
+	<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+	<script type="text/javascript">
+	   (function(){
+	      emailjs.init("user_NW027bsYvE7N8KZmkqvng");
+	   })();
+	</script>
+	    
     <script type="text/javascript" src="js/jquery.bootstrap-touchspin.js"></script>
     <script type="text/javascript" src="js/autoNumeric.js"></script>
+    <script type="text/javascript" src="js/jquery.inputmask.bundle.js"></script>
     
     <script type="text/javascript" src="product-catering-order.js"></script>
     <script type="text/javascript">
