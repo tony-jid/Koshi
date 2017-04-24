@@ -989,20 +989,20 @@ body {
 }
 
 #story1, #story2, #story3
-, #quality, #quality2, #quality3
+, #quality1, #quality2, #quality3
 , #product-header, #sushi-header, #rpr-header, #gyoza-header {
 	position: relative;
 	z-index: 1;
 }
 
 #story1, #story2, #story3
-, #quality, #quality2, #quality3 {
+, #quality1, #quality2, #quality3 {
 	-webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.8);
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.8);
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.8);
 }
 #story1::before, #story2::before, #story3::before
-, #quality::before, #quality2::before, #quality3::before
+, #quality1::before, #quality2::before, #quality3::before
 , #product-header::before, #sushi-header::before, #rpr-header::before, #gyoza-header::before {
   content: "";
   position: absolute;
@@ -1027,7 +1027,7 @@ body {
 	background: url('../img/story-bg-3.jpg') no-repeat center top;
   	background-size: cover;
 }
-#quality::before {
+#quality1::before {
 	opacity: .15;
 	background: url('../img/quality-bg-1.jpg') no-repeat center top;
   	background-size: cover;
@@ -1266,7 +1266,7 @@ body {
 	font-size: 20px;
 }
 .koshi-text-about {
-	font-size: 17px;
+	font-size: 14px;
 }
 
 .koshi-text-white {
