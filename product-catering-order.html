@@ -20,9 +20,12 @@
     <link href="css/slider.css" rel="stylesheet">
     <!-- Touch Spin CSS -->
     <link rel="stylesheet" href="css/jquery.bootstrap-touchspin.css">
+    <!-- Bootstrap Dialog -->
+    <link rel="stylesheet" href="css/bootstrap-dialog.css">
     
     <!-- Kaushan Font -->
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -217,7 +220,7 @@
 		    			</div>
 					</div>
 					<div class="form-group">
-						<label id="labelName5" class="col-sm-offset-2 col-sm-2 control-label">XXXXXX</label>
+						<label id="labelName5" class="col-sm-offset-1 col-sm-3 control-label">XXXXXX</label>
 						<div class="col-sm-2 text-center">
 							<input type="text" id="txtAmt5" class="form-control" maxlength="4">
 							<input type="hidden" id="hiddenCode5" value="0" >
@@ -364,11 +367,18 @@
 							</div>
 						</div>
 						
+						<!--
 						<a id="btnOrder" class="btn btn-default btn-lg" role="button">
 	           				<img src="img/button-bullet.png" >
 	           				ORDER NOW
 	           				<img src="img/button-bullet.png" >
 	           			</a>
+	           			-->
+	           			<button type="button" id="btnOrder" class="btn btn-default btn-lg">
+							<img src="img/button-bullet.png" >
+	           				ORDER NOW
+	           				<img src="img/button-bullet.png" >
+						</button>
 					</div>
 				</form>	
 			</fieldset>		
@@ -457,6 +467,8 @@
     <script type="text/javascript" src="js/jquery.bootstrap-touchspin.js"></script>
     <script type="text/javascript" src="js/autoNumeric.js"></script>
     <script type="text/javascript" src="js/jquery.inputmask.bundle.js"></script>
+    <script type="text/javascript" src="js/bootstrap-dialog.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
     
     <script type="text/javascript" src="product-catering-order.js"></script>
     <script type="text/javascript">

@@ -16,6 +16,9 @@ var prod_code = [
 ]
 
 var _minimum_order = 80;
+var _message_on_success = "Order details are sent to your email, we will contact you soon. <br> Thank you";
+var _message_on_failed = "Sorry, an order cannot be submitted. <br> Please try again or call us.";
+
 var _prefix_prod_name = "#labelName";
 var _prefix_prod_amt = "#txtAmt";
 var _prefix_prod_total = "#txtTotal";
@@ -141,6 +144,7 @@ function confirmOrder() {
 		if (checkMinimumOrder()) {
 			if (isCaptchaSolved()) {
 				hideAlert();
+				disableOrderButton();
 				submitOrder();
 			} else {
 				showAlertBottom('Please identify yourself, if you are not a bot');
@@ -209,6 +213,23 @@ function checkMinimumOrder() {
 		return false;
 }
 
+function clearOrderInputs() {
+	for (var i = 0; i < prod_code.length; i++) {
+		code = prod_code[i]['code'];
+		setTouchSpinInputValue(_prefix_prod_amt + code, 0);
+		setMoneyInputValue(_prefix_prod_total + code, 0);
+	}
+	
+	setMoneyInputValue($txtOrderTotal, 0);
+}
+
+function disableOrderButton() {
+	$btnOrder.prop('disabled', 'true');
+}
+function enableOrderButton() {
+	$btnOrder.prop('disabled', '');
+}
+
 function submitOrder() {
 	orderItems = '<table style="box-sizing: border-box; font-size: 14px; width: 500px; margin: 0 auto; padding: 0;" cellspacing="0" cellpadding="0"><tbody>';
 	
@@ -238,19 +259,53 @@ function sendEmail(orderItems) {
 		, {
 			"cus_email": $txtEmail.val()
 			,"cus_name": $txtName.val()
-			,"order_date": new Date()
-			,"order_time": new Date()
+			,"order_date": moment().format("D MMMM YYYY")
+			,"order_time": moment().format("h:mm:ss a")
 			,"cus_tel": $txtTel.val()
 			,"cus_address": $txtAdd.val()
 			,"order_items": orderItems
 			,"order_total": getMoneyInputValue($txtOrderTotal)
 		}
 	).then(function(response) {
-		   alert("SUCCESS. status=%d, text=%s", response.status, response.text);
+		onSendMailSuccess(response);
 	}, function(err) {
-		alert("FAILED. error=", err);
+		onSendMailFailed(err);
 	});
 }
+
+function onSendMailSuccess(response) {
+	clearOrderInputs();
+	enableOrderButton();
+	
+	showMessage(_message_on_success, function() {
+		window.location.reload();
+	});
+	
+	//alert("SUCCESS. status=" + response.status + ", text=" + response.text);
+}
+
+function onSendMailFailed(err) {
+	enableOrderButton();
+	
+	showMessage(_message_on_failed, function() {});
+	//alert("FAILED. error=" + err);
+}
+
+function showMessage(msg, callback) {
+	BootstrapDialog.alert({
+		size: BootstrapDialog.SIZE_LARGE,
+        title: 'Order Comfirmation',
+        message: msg,
+        closable: true,
+        onhide: callback 
+    });
+}
+
+
+
+
+
+
 
 
 
