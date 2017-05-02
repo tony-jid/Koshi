@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Koshi Sushi</title>
+    <title>Koshi Sushi - Catering Order</title>
     
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -23,7 +23,7 @@
     <!-- Bootstrap Dialog -->
     <link rel="stylesheet" href="css/bootstrap-dialog.css">
     
-    <!-- Kaushan Font -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     
@@ -53,8 +53,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
-                </a>
+                <a class="navbar-brand page-scroll" href="#page-top"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -73,7 +72,7 @@
                         <a class="page-scroll" href="quality.html#quality">Quality Assurance</a>
                     </li>
                     <li class="dropdown">
-                    	<a id="menuProduct" href="#" class="dropdown-toggle" data-toggle="dropdown">Products <span class="caret"></span></a>
+                    	<a id="menuProduct" href="#product" class="dropdown-toggle" data-toggle="dropdown">Products <span class="caret"></span></a>
                     	<ul class="dropdown-menu">
                     		<li>
                     			<a class="page-scroll" href="products.html#to_sushi">Sushi</a>
@@ -99,30 +98,7 @@
         <!-- /.container-fluid -->
     </nav>
         
-    <!-- Product Section -->
-    <section id="product" class="first-section-product bg-light-gray">
-    	<div id="gyoza-header">
-    		<div class="container">
-    			<div class="row">
-	            	<div class="col-md-12 text-center">
-						<h2 class="product-heading">Catering</h2>
-	            	</div>
-            	</div>
-            	<div class="row">
-	                <div class="col-md-4">
-	                    <h2 class="section-heading text-center">
-	                    	Throwing<br> a party or event?
-	                    </h2>
-	                </div>
-	                <div class="col-md-8">
-	                    <p class="p-about text-justify">
-	                    	Save money and time by letting us cater for you, and deliver to your door. All sushi and rice paper roll orders are prepared on a black platter, giving an excellent presentation for you and your guests.
-	                    </p>
-	                </div>
-	            </div>
-    		</div>
-        </div>
-                     
+    <section id="product" class="first-section bg-light-gray">                     
         <div class="container">
         	<fieldset>
 	        	<legend class="text-legend">CUSTOMER DETAILS</legend>
@@ -130,7 +106,7 @@
         		<form class="form-horizontal order-form">
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-8 text-center">
-							<div id="alertTop" class="alert alert-danger" role="alert" style="font-size: .9em">
+							<div id="alertTop" class="alert alert-danger hidden" role="alert" style="font-size: .9em">
 							  	<span class="alert-msg"></span>
 							  	<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 							</div>
@@ -139,23 +115,23 @@
 					<div class="form-group">
 						<label class="col-sm-offset-2 col-sm-2 control-label">*Name</label>
 						<div class="col-sm-2 text-center">
-							<input type="text" id="txtName" class="form-control" value="Ton">
+							<input type="text" id="txtName" class="form-control" value="">
 		    			</div>
 		    			<label class="col-sm-2 control-label">*Contact No.</label>
 		    			<div class="col-sm-2 text-center">
-							<input type="text" id="txtTel" class="form-control" value="9999999999">
+							<input type="text" id="txtTel" class="form-control" value="">
 		    			</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-offset-2 col-sm-2 control-label">*Email</label>
 						<div class="col-sm-4 text-center">
-							<input type="text" id="txtEmail" class="form-control" value="thawatchai.j14@gmail.com">
+							<input type="text" id="txtEmail" class="form-control" value="">
 		    			</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-offset-2 col-sm-2 control-label">*Address</label>
 						<div class="col-sm-4 text-center">
-							<textarea id="txtAdd" rows="3" class="form-control">VIC</textarea>
+							<textarea id="txtAdd" rows="3" class="form-control"></textarea>
 		    			</div>
 					</div>
 				</form>
@@ -361,7 +337,7 @@
 						<div class="g-recaptcha" data-sitekey="6LcCSx4UAAAAAI7i4vnSIK2TJsMcndDw_IKP1puu"></div>
 						
 						<div class="col-sm-offset-2 col-sm-8 text-center">
-							<div id="alertBottom" class="alert alert-danger" role="alert" style="font-size: .9em">
+							<div id="alertBottom" class="alert alert-danger hidden" role="alert" style="font-size: .9em">
 							  	<span class="alert-msg"></span>
 							  	<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 							</div>
@@ -374,11 +350,11 @@
 	           				<img src="img/button-bullet.png" >
 	           			</a>
 	           			-->
-	           			<button type="button" id="btnOrder" class="btn btn-default btn-lg">
-							<img src="img/button-bullet.png" >
-	           				ORDER NOW
-	           				<img src="img/button-bullet.png" >
-						</button>
+	           			<div class="col-sm-12 text-center">
+	           				<button type="button" id="btnOrder" class="btn btn-danger-custom btn-lg">
+		           				ORDER NOW
+							</button>
+	           			</div>
 					</div>
 				</form>	
 			</fieldset>		

@@ -1196,21 +1196,27 @@ body {
 	}
 }
 
-.download {
+.download, .download-2 {
 	position: fixed;
 	z-index: 9999;
 	bottom: 0;
 	right: 0;
 	cursor: pointer;
-	margin: 30px;
+	margin: 0 10px;
 }
-.download-label {
-	position: relative;
-	right: 10px;
+.download-2 {
+	margin: 0 90px;
 }
-@media (min-width: 768px) {
-	.download {
-		margin: 50px;
+.download-img {
+	width: 70px;
+}
+/* md */
+@media (min-width: 992px) {
+	.download-img {
+		width: 90px;
+	}
+	.download-2 {
+		margin: 0 110px;
 	}
 }
 
@@ -1223,7 +1229,8 @@ body {
 }
 .list-info {
 	list-style-image: url('../img/bullet.png');
-	font-size: 18px;
+	line-height: 1.8;
+	font-size: 1em;
 }
 .order-form {
 	font-size: 16px;
@@ -1305,5 +1312,78 @@ body {
 .koshi-text-white {
 	color: #FFF;
 }
+
+.koshi-bg-title-short, .koshi-bg-title-short {
+	
+}
+
+.koshi-bg-panel-title-short {
+    background: url('../img/title-header-short.png') no-repeat center;
+	background-size: 100% 95%;
+}
+
+.koshi-bg-panel-title-long {
+    background: url('../img/title-header-long.png') no-repeat center;
+    background-size: 100% 95%;
+}
+
+.koshi-panel-title {
+	padding: 20px 50px;
+	color: #fff;
+}
+.koshi-panel-content {
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.koshi-product-container {
+	margin: 0 35px;
+}
+.koshi-product-item-title {
+	margin: 10px 0;
+	font-size: 22px;
+	font-weight: bold;
+	color: #6D6C71;
+	white-space: nowrap;
+}
+.koshi-product-item {
+	margin-bottom: 20px;
+	
+	border: 1px solid #e0ddde;
+	border-radius: 0px 20px 0px 20px;
+	-moz-border-radius: 0px 20px 0px 20px;
+	-webkit-border-radius: 0px 20px 0px 20px;
+	
+	-webkit-box-shadow: 0px 0px 10px 2px rgba(224,221,222,1);
+	-moz-box-shadow: 0px 0px 10px 2px rgba(224,221,222,1);
+	box-shadow: 0px 0px 10px 2px rgba(224,221,222,1);
+}
+
+.btn-danger-custom {
+  	color: #fff;
+  	background-color: #EE3731;
+  	border-color: #d43f3a;
+  	-webkit-box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.75);
+	box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.75);
+}
+.btn-danger-custom:focus,
+.btn-danger-custom.focus {
+	color: #fff;
+  	background-color: red;
+  	border-color: #761c19;
+}
+.btn-danger-custom:hover {
+	color: #fff;
+  	background-color: red;
+  	border-color: #ac2925;
+}
+
+
+
+
+
+
+
 
 

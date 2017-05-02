@@ -165,7 +165,7 @@ function isCaptchaSolved() {
 
 function showAlertTop(msg, control) {
 	$alertMsg.text(msg);
-	$alertTop.show();
+	$alertTop.removeClass('hidden');
 	
 	if (typeof(control) !== 'undefined' )
 		$(control).focus();
@@ -173,12 +173,12 @@ function showAlertTop(msg, control) {
 
 function showAlertBottom(msg) {
 	$alertMsg.text(msg);
-	$alertBottom.show();
+	$alertBottom.removeClass('hidden');
 }
 
 function hideAlert() {
-	$alertTop.hide();
-	$alertBottom.hide();
+	$alertTop.addClass('hidden');
+	$alertBottom.addClass('hidden');
 }
 
 function validateCustomerDetails() {
