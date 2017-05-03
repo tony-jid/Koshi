@@ -1,3 +1,18 @@
+function manipulateProductDirectLink() {
+	if ($(window).width() > 750) {
+		$('#menuProduct').click(function(){ window.location.replace('products.html'); });
+	}
+	
+	// Adjust direct link to "Product" page
+    $(window).resize(function() {
+    	$('#menuProduct').unbind('click');
+		// if the actual width > 768
+		if ($(window).width() > 750) {
+			$('#menuProduct').click(function(){ window.location.replace('products.html'); });	
+		}
+	});
+}
+
 // Agency Theme JavaScript
 
 (function($) {
@@ -7,7 +22,7 @@
     $('a.page-scroll').bind('click', function(event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
-            scrollTop: ($($anchor.attr('href')).offset().top - 50)
+            scrollTop: ($($anchor.attr('href')).offset().top)
         }, 1250, 'easeInOutExpo');
         event.preventDefault();
     });
@@ -29,5 +44,4 @@
             top: 100
         }
     })
-
 })(jQuery); // End of use strict
