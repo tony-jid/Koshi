@@ -1,16 +1,16 @@
 var prod_code = [
 		{code: 1, name: 'Cooked Tuna', desc: 'Sushi Rolls - Cooked Tuna', price: 2.0, amt: 0, total: 0.0}
 		, {code: 2, name: 'Vegetable', desc: 'Sushi Rolls - Vegetable', price: 2.0, amt: 0, total: 0.0}
-		, {code: 3, name: 'Fresh Salmon', desc: 'Sushi Rolls - Fresh Salmon', price: 2.20, amt: 0, total: 0.0}
+		, {code: 3, name: 'Fresh Salmon', desc: 'Sushi Rolls - Fresh Salmon', price: 2.2, amt: 0, total: 0.0}
 		, {code: 4, name: 'California', desc: 'Sushi Rolls - California', price: 2.0, amt: 0, total: 0.0}
 		, {code: 5, name: 'Teriyaki Chicken', desc: 'Sushi Rolls - Teriyaki Chicken', price: 2.0, amt: 0, total: 0.0}
 		, {code: 6, name: 'Crispy Chicken', desc: 'Sushi Rolls - Crispy Chicken', price: 2.0, amt: 0, total: 0.0}
 		, {code: 7, name: 'Prawn', desc: 'Rice Paper Rolls - Prawn', price: 2.0, amt: 0, total: 0.0}
 		, {code: 8, name: 'Chicken', desc: 'Rice Paper Rolls - Chicken', price: 2.0, amt: 0, total: 0.0}
 		, {code: 9, name: 'Spicy Pork', desc: 'Rice Paper Rolls - Spicy Pork', price: 2.0, amt: 0, total: 0.0}
-		, {code: 10, name: 'Pork', desc: 'Gyoza - Pork', price: 18.0, amt: 0, total: 0.0}
-		, {code: 11, name: 'Chicken', desc: 'Gyoza - Chicken', price: 18.0, amt: 0, total: 0.0}
-		, {code: 12, name: 'Vegetable', desc: 'GYoza - Vegetable', price: 18.0, amt: 0, total: 0.0}
+		, {code: 10, name: 'Pork', desc: 'Gyoza - Pork', price: 18.95, amt: 0, total: 0.0}
+		, {code: 11, name: 'Chicken', desc: 'Gyoza - Chicken', price: 18.95, amt: 0, total: 0.0}
+		, {code: 12, name: 'Vegetable', desc: 'GYoza - Vegetable', price: 18.95, amt: 0, total: 0.0}
 		, {code: 13, name: 'Platter A Sushi Roll Combo Platter', desc: 'Platter A - Sushi Roll Combo Platter', price: 70.0, amt: 0, total: 0.0}
 		, {code: 14, name: 'Platter B Nigiri Combo Platter', desc: 'Platter B - Nigiri Combo Platter', price: 70.0, amt: 0, total: 0.0}
 ]
@@ -64,7 +64,7 @@ function setProductTouchSpin() {
 		desc = prod_code[i]['desc'];
 		price = prod_code[i]['price'];
 		
-		initMoneyInput(_prefix_prod_total + code, 0, 99999);
+		initMoneyInput(_prefix_prod_total + code, 0, 99999.99);
 		setMoneyInputValue(_prefix_prod_total + code, 0);
 		//$(_prefix_prod_total + code).val(0);
 		
@@ -89,8 +89,8 @@ function bindPriceChange(control) {
 function calProductTotal(control, code) {
 	amt = getTouchSpinInputValue(control);
 	price = $(_prefix_prod_price + code).val();
-	
 	total = amt * price;
+	
 	//$(_prefix_prod_total + code).val(total);
 	setMoneyInputValue(_prefix_prod_total + code, total);
 	
@@ -132,7 +132,7 @@ function initPage()
 		confirmOrder();
 	});
 	
-	initMoneyInput($txtOrderTotal, 0, 999999);
+	initMoneyInput($txtOrderTotal, 0, 999999.99);
 	setMoneyInputValue($txtOrderTotal, 0);
 	setProductTouchSpin();
 	
