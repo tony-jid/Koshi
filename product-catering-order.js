@@ -69,7 +69,7 @@ function setProductTouchSpin() {
 		//$(_prefix_prod_total + code).val(0);
 		
 		$(_prefix_prod_code + code).val(code);
-		$(_prefix_prod_name + code).text(name + ' @ $' + price + '');
+		$(_prefix_prod_name + code).text(name + ' @ $' + price.toFixed(2) + '');
 		$(_prefix_prod_price + code).val(price);
 		
 		// store the code in the "name" property
@@ -125,8 +125,8 @@ function initPage()
 	$alertBottom = $('#alertBottom');
 	$alertMsg = $('.alert-msg');
 	
-	$txtEmail.inputmask('email');
-	$txtTel.inputmask('9999-999-999'); // .inputmask("isComplete")
+	//$txtEmail.inputmask('email');
+	//$txtTel.inputmask('9999-999-999'); // .inputmask("isComplete")
 	
 	$btnOrder.click(function(){
 		confirmOrder();
@@ -183,8 +183,8 @@ function hideAlert() {
 
 function validateCustomerDetails() {
 	if ($txtName.val().trim().length) {
-		if ($txtTel.inputmask('isComplete')) {
-			if ($txtEmail.inputmask('isComplete')) {
+		if ($txtTel.val().trim().length) {
+			if ($txtEmail.val().trim().length) {
 				if ($txtAdd.val().trim().length) {
 					hideAlert();
 					return true;
