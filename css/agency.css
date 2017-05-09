@@ -184,6 +184,10 @@ fieldset[disabled] .btn-xl.active {
     border-color: transparent
 }
 
+.navbar-fixed-top .navbar-collapse {
+  max-height: 450px;
+}
+
 /* Hide the logo when the scroll is at the top of the page */
 .navbar-custom.affix-top .navbar-brand {
 	/*
