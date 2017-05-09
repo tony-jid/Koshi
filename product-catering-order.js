@@ -16,7 +16,7 @@ var prod_code = [
 ]
 
 var _minimum_order = 80;
-var _message_on_success = "Order details are sent to your email, we will contact you soon. <br> Thank you";
+var _message_on_success = "Order details are sent to your email.<br>We will be in contact with you within 24 hrs of order placement. <br> Thank you";
 var _message_on_failed = "Sorry, an order cannot be submitted. <br> Please try again or call us.";
 
 var _prefix_prod_name = "#labelName";
