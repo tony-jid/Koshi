@@ -8,9 +8,9 @@ var prod_code = [
 		, {code: 7, name: 'Prawn', desc: 'Rice Paper Rolls - Prawn', price: 2.0, amt: 0, total: 0.0}
 		, {code: 8, name: 'Chicken', desc: 'Rice Paper Rolls - Chicken', price: 2.0, amt: 0, total: 0.0}
 		, {code: 9, name: 'Spicy Pork', desc: 'Rice Paper Rolls - Spicy Pork', price: 2.0, amt: 0, total: 0.0}
-		, {code: 10, name: 'Pork', desc: 'Gyoza - Pork', price: 18.95, amt: 0, total: 0.0}
-		, {code: 11, name: 'Chicken', desc: 'Gyoza - Chicken', price: 18.95, amt: 0, total: 0.0}
-		, {code: 12, name: 'Vegetable', desc: 'GYoza - Vegetable', price: 18.95, amt: 0, total: 0.0}
+		, {code: 10, name: 'Pork', desc: 'Gyoza - Pork', price: 19.95, amt: 0, total: 0.0}
+		, {code: 11, name: 'Chicken', desc: 'Gyoza - Chicken', price: 19.95, amt: 0, total: 0.0}
+		, {code: 12, name: 'Vegetable', desc: 'GYoza - Vegetable', price: 19.95, amt: 0, total: 0.0}
 		, {code: 13, name: 'Platter A Sushi Roll Combo Platter', desc: 'Platter A - Sushi Roll Combo Platter', price: 70.0, amt: 0, total: 0.0}
 		, {code: 14, name: 'Platter B Nigiri Combo Platter', desc: 'Platter B - Nigiri Combo Platter', price: 70.0, amt: 0, total: 0.0}
 ]
