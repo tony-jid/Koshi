@@ -21,7 +21,7 @@
 <tbody>
 <tr style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
 <td style="font-family: 'Helvetica Neue', Helvetica, Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0px; padding: 5px 0px; width: 543px;" valign="top">
-<p style="width: 500px; margin: 0 auto;"><strong>Order on:</strong> {{order_date}} {{order_time}}<br /><strong>Customer Name:</strong> {{cus_name}}<br style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;" /><strong>Contact No:</strong> {{cus_tel}}<br style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;" /><strong>Address:</strong> {{cus_address}}</p>
+<p style="width: 500px; margin: 0 auto;"><strong>Order on:</strong> {{order_date}} {{order_time}}<br /><br /><strong>Delivery Date:</strong> {{delivery_date}}<br /><strong>Customer Name:</strong> {{cus_name}}<br style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;" /><strong>Contact No:</strong> {{cus_tel}}<br style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;" /><strong>Address:</strong> {{cus_address}}</p>
 </td>
 </tr>
 <tr style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">

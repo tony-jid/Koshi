@@ -25,9 +25,43 @@ var _prefix_prod_total = "#txtTotal";
 var _prefix_prod_code = "#hiddenCode";
 var _prefix_prod_price = "#hiddenPrice";
 
-var $txtName, $txtTel, $txtEmail, $txtAdd, $btnOrder;
+var $deliveryDate, $txtName, $txtTel, $txtEmail, $txtAdd, $btnOrder;
 var $txtOrderTotal;
 var $alertTop, $alertBottom, $alertMsg;
+
+var DATE_PICKER_FORMAT = 'DD, d MM yyyy';
+var MOMENT_DATE_FORMAT = 'dddd, D MMM YYYY';
+
+function initDatepickerInput(control, date, startDate) {
+	if (typeof(startDate) === 'undefined')
+		startDate = new Date();
+	
+	$(control).datepicker({
+	    format: DATE_PICKER_FORMAT,
+	    weekStart: 1,
+	    todayBtn: "linked",
+	    daysOfWeekHighlighted: "0,6",
+	    autoclose: true,
+	    showOnFocus: false,
+	    orientation: "bottom auto",
+	    startDate: startDate
+	});
+	
+	// if the date var is set
+	if (typeof(date) !== 'undefined')
+		setDatepickerInputValue(control, date);
+	else
+		setDatepickerInputValue(control, new Date());
+}
+
+function getDatepickerValue(control) {
+	return moment($(control).datepicker('getDate')).format(MOMENT_DATE_FORMAT);
+	//return $(control).datepicker('getDate');
+}
+
+function setDatepickerInputValue(control, date) {
+	$(control).datepicker('setDate', date);
+}
 
 function initMoneyInput(control, min, max) {
 	$(control).autoNumeric('init', { vMin: min, vMax: max, aSign: '$' });
@@ -115,6 +149,7 @@ function setOrderTotal(total) {
 
 function initPage()
 {
+	$deliveryDate = $('#deliveryDate');
 	$txtName = $('#txtName');
 	$txtTel = $('#txtTel');
 	$txtEmail = $('#txtEmail');
@@ -132,6 +167,7 @@ function initPage()
 		confirmOrder();
 	});
 	
+	initDatepickerInput($deliveryDate);
 	initMoneyInput($txtOrderTotal, 0, 999999.99);
 	setMoneyInputValue($txtOrderTotal, 0);
 	setProductTouchSpin();
@@ -237,8 +273,8 @@ function submitOrder() {
 		amt = parseFloat(getTouchSpinInputValue(_prefix_prod_amt + prod_code[i]['code']));
 		if (amt > 0) {
 			desc = prod_code[i]['desc'];
-			price = prod_code[i]['price'];
-			total = getMoneyInputValue(_prefix_prod_total + prod_code[i]['code']);
+			price = prod_code[i]['price'].toFixed(2);
+			total = parseFloat(getMoneyInputValue(_prefix_prod_total + prod_code[i]['code'])).toFixed(2);
 			
 			orderItems += '<tr style="width:500px">'
 			orderItems += '<td style="box-sizing: border-box; font-size: 14px; vertical-align: top; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top" width="45%">' + desc + ' @ $' + price + '</td>';
@@ -257,14 +293,16 @@ function submitOrder() {
 function sendEmail(orderItems) {
 	emailjs.send("gmail", "order_form"
 		, {
-			"cus_email": $txtEmail.val()
+			"delivery_date": getDatepickerValue($deliveryDate)
+			,"cus_email": $txtEmail.val()
 			,"cus_name": $txtName.val()
-			,"order_date": moment().format("D MMMM YYYY")
+			//,"order_date": moment().format("D MMMM YYYY")
+			,"order_date": moment().format(MOMENT_DATE_FORMAT)
 			,"order_time": moment().format("h:mm:ss a")
 			,"cus_tel": $txtTel.val()
 			,"cus_address": $txtAdd.val()
 			,"order_items": orderItems
-			,"order_total": getMoneyInputValue($txtOrderTotal)
+			,"order_total": parseFloat(getMoneyInputValue($txtOrderTotal)).toFixed(2)
 		}
 	).then(function(response) {
 		onSendMailSuccess(response);
